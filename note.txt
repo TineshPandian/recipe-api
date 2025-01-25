@@ -1,0 +1,5 @@
+GET all recipes: GET /api/recipes
+GET recipe by ID: GET /api/recipes/:id
+POST a recipe: POST /api/recipes
+PUT update recipe: PUT /api/recipes/:id
+DELETE recipe: DELETE /api/recipes/:id
