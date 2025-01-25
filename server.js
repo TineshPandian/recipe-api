@@ -1,7 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const recipeRoutes = require('./routes/recipeRoutes');
 
@@ -12,8 +11,10 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all origins
+app.use(express.json()); // Use express built-in JSON parser instead of body-parser
+
+// Recipe API routes
 app.use('/api/recipes', recipeRoutes);
 
 // Home route
