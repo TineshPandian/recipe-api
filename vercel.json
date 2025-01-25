@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "server.js"
+      }
+    ],
+    "env": {
+      "MONGO_URI": "mongodb+srv://admin:Tilosh01@cluster0.shg79.mongodb.net/",
+      "PORT": "8001"
+    }
+  }
+  
