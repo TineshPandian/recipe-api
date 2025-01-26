@@ -11,10 +11,10 @@ connectDB();
 
 // Completely open CORS policy (Allows all requests)
 app.use(cors({
-    origin: '*',  // Allow requests from any origin
-    methods: '*', // Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
-    allowedHeaders: '*', // Allow all headers
-    credentials: false// Allow sending cookies or credentials
+    origin: '*',  
+    methods: '*', 
+    allowedHeaders: '*', 
+    credentials: false // Allow sending cookies or credentials (should be false)
 }));
 
 app.use(express.json());
