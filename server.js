@@ -1,6 +1,6 @@
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
+const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const recipeRoutes = require('./routes/recipeRoutes');
 
@@ -9,27 +9,24 @@ dotenv.config();
 const app = express();
 connectDB();
 
-// CORS configuration
-const corsOptions = {
-    origin: 'http://localhost:5173', // Allow all origins
-    credentials: true, // Allow cookies & credentials
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Content-Length', 'X-Requested-With'],
-};
-
-// Apply CORS middleware
-app.use(cors(corsOptions));
-app.options('*', cors()); // Allow preflight requests for all routes
+// Completely open CORS policy (Allows all requests)
+app.use(cors({
+    origin: '*',  // Allow requests from any origin
+    methods: '*', // Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+    allowedHeaders: '*', // Allow all headers
+    credentials: true // Allow sending cookies or credentials
+}));
 
 app.use(express.json());
+
+// Routes
 app.use('/api/recipes', recipeRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Recipe API is running...');
+    res.send('Recipe API is running...');
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
