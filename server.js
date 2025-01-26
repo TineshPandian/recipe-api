@@ -14,7 +14,7 @@ app.use(cors({
     origin: '*',  // Allow requests from any origin
     methods: '*', // Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
     allowedHeaders: '*', // Allow all headers
-    credentials: true // Allow sending cookies or credentials
+    credentials: false// Allow sending cookies or credentials
 }));
 
 app.use(express.json());
