@@ -9,12 +9,15 @@ dotenv.config();
 const app = express();
 connectDB();
 
-// Completely open CORS policy (Allows all requests)
-app.use(cors({
-    origin: '*',  
-    methods: '*', 
-    allowedHeaders: '*'
-}));
+const corsOptions = {
+    origin: '*', // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Explicitly define allowed methods
+    allowedHeaders: ['Content-Type'], // Allow only necessary headers
+    credentials: false // Ensure no cookies or credentials are included
+};
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 
