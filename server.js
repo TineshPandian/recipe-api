@@ -9,15 +9,11 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 connectDB();
-const corsOptions = {
-    origin: '*',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};
-// Middleware
-app.use(cors(corsOptions)); // Enable CORS for all origins
-app.use(express.json()); // Use express built-in JSON parser instead of body-parser
+
+// Enable CORS for all origins, ports, and methods
+app.use(cors()); // Fully open CORS
+app.use(express.json()); // Use express built-in JSON parser
+
 // Recipe API routes
 app.use('/api/recipes', recipeRoutes);
 
