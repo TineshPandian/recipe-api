@@ -13,8 +13,7 @@ connectDB();
 app.use(cors({
     origin: '*',  
     methods: '*', 
-    allowedHeaders: '*', 
-    credentials: false // Allow sending cookies or credentials (should be false)
+    allowedHeaders: '*'
 }));
 
 app.use(express.json());
